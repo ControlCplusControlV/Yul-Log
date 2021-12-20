@@ -22,7 +22,7 @@ npm install -g yul-log
 yul-log
 ```
 
-This will compile .yulp contracts inside of a "Yul+ Contracts" Directory in the current context into a special json file with the following format
+This will compile .yulp contracts inside of a "Yul+ Contracts" Directory in the current context into a special json file with the following format into a "./build" folder inside the current context
 
 ```
 {
