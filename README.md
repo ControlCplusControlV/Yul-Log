@@ -6,6 +6,14 @@ Yul Log reads from a directory called "Yul+ Contracts" within the local context,
 
 Currently Truffle is supported and Hardhat is close by, alternatively you can just utilize the default created artifacts inside of your own framework. If you want to check out how to use Yul log with truffle check out my [truffle box](https://github.com/ControlCplusControlV/Truffle-Yulp-Box) and if you have any questions or issues just raise an issue on this repo!
 
+## Installation
+
+Simply install with node via
+
+```
+npm install -g yul-log
+```
+
 ## Commands
 
 ```
