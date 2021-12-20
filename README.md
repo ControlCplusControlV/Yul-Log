@@ -4,7 +4,7 @@ Yul Log is a package designed to serve as an easy to use unified toolchain for w
 
 Yul Log reads from a directory called "Yul+ Contracts" within the local context, and expects only files with the .yulp extension inside. It will then compile your contracts and put the artifacts in ./artifacts/contracts for hardhat, and for truffle it will transpile them to Yul and put them in your contracts directory, then use truffle to compile it down to useable artifacts.
 
-Currently Truffle is supported and Hardhat is close by, alternatively you can just utilize the default created artifacts inside of your own framework.
+Currently Truffle is supported and Hardhat is close by, alternatively you can just utilize the default created artifacts inside of your own framework. If you want to check out how to use Yul log with truffle check out my [truffle box](https://github.com/ControlCplusControlV/Truffle-Yulp-Box) and if you have any questions or issues just raise an issue on this repo!
 
 ## Commands
 
