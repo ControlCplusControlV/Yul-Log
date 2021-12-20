@@ -30,7 +30,21 @@ You can then use this json file however you would like in your current project.
 yul-log truffle
 ```
 
-This will compile .yulp contracts inside of a "Yul+ Contracts" Directory at the root of the project into truffle artifacts, which can then be treated like regular truffle contracts when testing.
+This will compile .yulp contracts inside of a "Yul+ Contracts" Directory at the root of the project into truffle artifacts, which can then be treated like regular truffle contracts when testing. Note that if you are using truffle make sure the following is in your truffle-config.js
+
+```
+      solc: {
+      version: "0.8.10",    // Fetch exact version from solc-bin (default: truffle's version)
+      language : "Yul",
+      // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
+        settings: {          // See the solidity docs for advice about optimization and evmVersion
+        optimizer: {
+          enabled: true,
+          runs: 200
+        },
+```
+
+so that you can compile Yul, as this will be used to compile the transpiled Yul, giving you more control over options and optimizations.
 
 ```
 yul-log hardhat
