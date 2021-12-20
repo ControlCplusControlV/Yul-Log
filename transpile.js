@@ -37,7 +37,6 @@ fs.readdir("./Yul+ Contracts/", (err, files) => {
                   }
                 }
               })));  
-
             let contractObjects = Object.keys(output.contracts["Target.yul"])
             let abi = source.signatures.map(v => v.abi.slice(4, -1)).concat(source.topics.map(v => v.abi.slice(6, -1)))
             let bytecode = "0x" + output.contracts["Target.yul"][contractObjects[0]]["evm"]["bytecode"]["object"];
@@ -115,6 +114,26 @@ fs.readdir("./Yul+ Contracts/", (err, files) => {
               });
         }else {
           // Default Artifact That Most People can Make use of for web3 Scripts
+      let abiBlock = ""
+      for (let i = 0; i < abi.length; i++) {
+	if (abi[i].indexOf("returns") < -1 && abi[i].substring(0, 5) != "event"){
+	  abiBlock += abi[i] + "external" +";" + "\n"
+	} else {
+	    if(abi[i].substring(0, 5) != "event"){
+	    //function get() returns (uint256);
+	    splitABI = String(abi[i]).split(" ")
+	    closeIndex = abi[i].indexOf(")")
+	    let funcName = String(abi[i]).substring(0, closeIndex+1) + " external " + String(abi[i]).substring(closeIndex+1, String(abi[i]).length)
+	    abiBlock += funcName +";" + "\n"
+	  } else {
+	    // Handle if its an event
+	    abiBlock += abi[i] + ";"
+
+	  }
+	}
+      } 
+      // Convert abi to a solidity like interface
+      abi = "pragma solidity ^0.8.10;\n interface " + "YulpInterface" + "{\n" + abiBlock + "\n}"
           let compiledInterface = JSON.parse(solc.compile(JSON.stringify({
             "language": "Solidity",
             "sources": { "Target.sol": { "content": abi } },
