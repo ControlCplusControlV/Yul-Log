@@ -6,6 +6,9 @@
   "scripts": {
     "test": "yul-log truffle"
   },
+  "bin": {
+    "yul-log": "transpile.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ControlCplusControlV/Yul-Log.git"
@@ -20,5 +23,9 @@
   "bugs": {
     "url": "https://github.com/ControlCplusControlV/Yul-Log/issues"
   },
-  "homepage": "https://github.com/ControlCplusControlV/Yul-Log#readme"
+  "homepage": "https://github.com/ControlCplusControlV/Yul-Log#readme",
+  "dependencies": {
+    "solc": "^0.8.10",
+    "yulp": "^0.2.3"
+  }
 }
