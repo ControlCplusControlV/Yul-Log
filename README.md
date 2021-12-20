@@ -14,6 +14,8 @@ Simply install with node via
 npm install -g yul-log
 ```
 
+(sudo may be required depending on settings for a global installation)
+
 ## Commands
 
 ```
