@@ -1,0 +1,24 @@
+{
+  "name": "yul-log",
+  "version": "0.0.1",
+  "description": "A Unified Toolchain for Yul+ Smart Contracts ",
+  "main": "transpile.js",
+  "scripts": {
+    "test": "yul-log truffle"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ControlCplusControlV/Yul-Log.git"
+  },
+  "keywords": [
+    "Yul+",
+    "Ethereum",
+    "Smart-Contracts"
+  ],
+  "author": "ControlCplusControlV",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/ControlCplusControlV/Yul-Log/issues"
+  },
+  "homepage": "https://github.com/ControlCplusControlV/Yul-Log#readme"
+}
