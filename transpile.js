@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const yulp = require('yulp');
 const fs = require('fs');
 const { format } = require('path');
