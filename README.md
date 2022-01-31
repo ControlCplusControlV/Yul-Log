@@ -16,6 +16,16 @@ npm install -g yul-log
 
 (sudo may be required depending on settings for a global installation)
 
+
+Once you have yul-log installed on your machine, you can run the following command to quickly set up a new Yul+ project.
+
+```
+yul-log init
+```
+
+(sudo may be required depending on settings for a global installation)
+
+
 ## Commands
 
 ```
