@@ -6,6 +6,7 @@ const { exec } = require('child_process');
 const { stderr } = require('process');
 const solc = require('solc');
 
+
 /*
   Yul Log is my own toolchain for compiling Yul+ Contracts capable of handing a full 1 and a half frameworks
   Truffle and some very shitty hardhat artifact generation, that hardhat breaks if it sees
@@ -14,6 +15,43 @@ const solc = require('solc');
   Also its handling of the file structure is horrible
 
 */
+
+//collect the arguments
+var args = process.argv.slice(2);
+
+//if arg is init, initialize yul-log
+if (args.length==1 && args[0]=="init"){
+  console.log("Initializing yul-log...")
+  yulLogInit();
+}
+
+//initialize the yul-log environment
+function yulLogInit(){
+//clone the truffle yulp box repo and copy the contents into the root directory
+exec("git clone https://github.com/ControlCplusControlV/Truffle-Yulp-Box.git\
+ && cd Truffle-Yulp-Box\
+ && cp -r ./* ../\
+ && cd ../\
+ && rm -rf Truffle-Yulp-Box",
+    function (error, stdout, stderr) {
+        if (error !== null) {
+             console.log('exec error: ' + error);
+        }
+    });
+
+//compile the test contract
+console.log("Compiling example contract...")
+exec("yul-log truffle",
+    function (error, stdout, stderr) {
+        if (error !== null) {
+             console.log('exec error: ' + error);
+        }
+
+        console.log('Yul-Log is all set up! You can run "truffle test" to see the example tests in action.')
+    });
+
+}
+
 
 fs.readdir("./Yul+ Contracts/", (err, files) => {
     files.forEach(file => {
