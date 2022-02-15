@@ -17,15 +17,13 @@ npm install -g yul-log
 (sudo may be required depending on settings for a global installation)
 
 
-Once you have yul-log installed on your machine, you can run the following command to quickly set up a new Yul+ project.
+After installing the package, run the following command to set up the development environment. 
 
 ```
 yul-log init
 ```
 
-(sudo may be required depending on settings for a global installation)
-
-
+Now you are all set up and can write 
 ## Commands
 
 ```
@@ -64,7 +62,7 @@ This will compile .yulp contracts inside of a "Yul+ Contracts" Directory at the 
         },
 ```
 
-so that you can compile Yul, as this will be used to compile the transpiled Yul, giving you more control over options and optimizations.
+so that you can compile Yul, as this will be used to compile the transpiled Yul, giving you more control over options and optimizations. After compiling the contract into truffle artifacts, you can run `truffle test` to run tests with truffle as normal.
 
 ```
 yul-log hardhat
