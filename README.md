@@ -23,7 +23,7 @@ After installing the package, run the following command to set up the developmen
 yul-log init
 ```
 
-Now you are all set up and can write 
+Now you are all set up and can write `.yulp` files inside of the `Yul+ Contracts` directory.
 ## Commands
 
 ```
