@@ -23,6 +23,8 @@ var args = process.argv.slice(2);
 if (args.length==1 && args[0]=="init"){
   console.log("Initializing yul-log...")
   yulLogInit();
+}else{
+  yulLog();
 }
 
 //initialize the yul-log environment
@@ -52,7 +54,8 @@ exec("yul-log truffle",
 
 }
 
-
+//function to compile yulp contracts
+function yulLog(){
 fs.readdir("./Yul+ Contracts/", (err, files) => {
     files.forEach(file => {
         fs.readFile("./Yul+ Contracts/" +file, 'utf8', function (err,data) {
@@ -199,3 +202,4 @@ fs.readdir("./Yul+ Contracts/", (err, files) => {
     });
   });
 })
+}
