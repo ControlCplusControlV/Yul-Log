@@ -23,9 +23,25 @@ var args = process.argv.slice(2);
 if (args.length==1 && args[0]=="init"){
   console.log("Initializing yul-log...")
   yulLogInit();
-}else{
+} else if(args.length == 2) {
+  yulLogFetch()
+} else{
   yulLog();
 }
+
+function yulLogFetch(){
+  var args = process.argv.slice(2)
+
+  if(args[2] == "bytecode") {
+	var contract = args[1]
+	fs.readFile("./build/" + contract + ".json", 'utf8', function (err,data) {
+	  var artifact = JSON.parse(fs.readFile("./build/" + contract + ".json")
+	  console.log(artifact.bytecode)
+	}
+  }
+
+}
+
 
 //initialize the yul-log environment
 function yulLogInit(){
