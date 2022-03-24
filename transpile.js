@@ -39,6 +39,14 @@ function yulLogFetch(){
 	  console.log(artifact.bytecode)
 	}
   }
+		  
+if(args[2] == "abi") {
+	var contract = args[1]
+	fs.readFile("./build/" + contract + ".json", 'utf8', function (err,data) {
+	  var artifact = JSON.parse(fs.readFile("./build/" + contract + ".json")
+	  console.log(artifact.abi)
+	}
+  }
 
 }
 
