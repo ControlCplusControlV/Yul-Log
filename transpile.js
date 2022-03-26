@@ -32,20 +32,20 @@ if (args.length==1 && args[0]=="init"){
 function yulLogFetch(){
   var args = process.argv.slice(2)
 
-  if(args[2] == "bytecode") {
-	var contract = args[1]
+  if(args[1] == "bytecode") {
+	var contract = args[0]
 	fs.readFile("./build/" + contract + ".json", 'utf8', function (err,data) {
-	  var artifact = JSON.parse(fs.readFile("./build/" + contract + ".json")
+	var artifact = JSON.parse(data) 	
 	  console.log(artifact.bytecode)
-	}
+	})
   }
 		  
-if(args[2] == "abi") {
-	var contract = args[1]
+if(args[1] == "abi") {
+	var contract = args[0]
 	fs.readFile("./build/" + contract + ".json", 'utf8', function (err,data) {
-	  var artifact = JSON.parse(fs.readFile("./build/" + contract + ".json")
-	  console.log(artifact.abi)
-	}
+	  var artifact = JSON.parse(data)
+	  console.log(JSON.stringify(artifact.abi))
+	})
   }
 
 }
