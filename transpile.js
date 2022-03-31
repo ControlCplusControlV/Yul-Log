@@ -4,6 +4,7 @@ const fs = require('fs');
 const { format } = require('path');
 const { exec } = require('child_process');
 const { stderr } = require('process');
+const { ethers } = require('ethers');
 const solc = require('solc');
 
 
@@ -31,24 +32,24 @@ if (args.length==1 && args[0]=="init"){
 
 function yulLogFetch(){
   var args = process.argv.slice(2)
-
   if(args[1] == "bytecode") {
-	var contract = args[0]
-	fs.readFile("./build/" + contract + ".json", 'utf8', function (err,data) {
-	var artifact = JSON.parse(data) 	
-	  console.log(artifact.bytecode)
-	})
+        var contract = args[0]
+        fs.readFile(path.join(OUT_DIR, contract + ".json"), 'utf8', function (err,data) {
+        var artifact = JSON.parse(data)
+                process.stdout.write(ethers.utils.defaultAbiCoder.encode(["bytes"], [artifact.bytecode]))
+        })
   }
-		  
+
 if(args[1] == "abi") {
-	var contract = args[0]
-	fs.readFile("./build/" + contract + ".json", 'utf8', function (err,data) {
-	  var artifact = JSON.parse(data)
-	  console.log(JSON.stringify(artifact.abi))
-	})
+        var contract = args[0]
+        fs.readFile(path.join(OUT_DIR, contract + ".json"), 'utf8', function (err,data) {
+    var artifact = JSON.parse(data)
+    process.stdout.write(JSON.stringify(artifact.abi))
+        })
   }
 
 }
+
 
 
 //initialize the yul-log environment
