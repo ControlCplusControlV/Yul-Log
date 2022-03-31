@@ -5,7 +5,9 @@ const { format } = require('path');
 const { exec } = require('child_process');
 const { stderr } = require('process');
 const { ethers } = require('ethers');
+const path = require('path');
 const solc = require('solc');
+const OUT_DIR = path.join(process.cwd(), "build");
 
 
 /*
@@ -34,7 +36,7 @@ function yulLogFetch(){
   var args = process.argv.slice(2)
   if(args[1] == "bytecode") {
         var contract = args[0]
-        fs.readFile(path.join(OUT_DIR, contract + ".json"), 'utf8', function (err,data) {
+          fs.readFile(path.join(OUT_DIR, contract + ".json"), 'utf8', function (err,data) {
         var artifact = JSON.parse(data)
                 process.stdout.write(ethers.utils.defaultAbiCoder.encode(["bytes"], [artifact.bytecode]))
         })
