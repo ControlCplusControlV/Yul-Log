@@ -1,4 +1,4 @@
-# 📦 Yul Log 📦
+# 🪵 Yul Log 🪵
 
 Yul Log is a package designed to serve as an easy to use unified toolchain for writing and using Yul+ Contracts. It's named after the dessert, partially to fit with Truffle's theme.
 
